@@ -271,7 +271,7 @@ writeout_final_defers (int out_des)
 int
 to_ascii (char *where, uintmax_t v, size_t digits, unsigned logbase)
 {
-  static char codetab[] = "0123456789ABCDEF";
+  static char codetab[] = "0123456789abcdef";
   int i = digits;
   
   do
@@ -344,18 +344,18 @@ write_out_new_ascii_header (const char *magic_string,
   to_ascii_or_warn (p, file_hdr->c_nlink, 8, LG_16, file_hdr->c_name,
 		    _("number of links"));
   p += 8;
-  to_ascii_or_warn (p, file_hdr->c_mtime, 8, LG_16, file_hdr->c_name,
+  to_ascii_or_warn (p, 0, 8, LG_16, file_hdr->c_name,
 		    _("modification time"));
   p += 8;
   if (to_ascii_or_error (p, file_hdr->c_filesize, 8, LG_16, file_hdr->c_name,
 			 _("file size")))
     return 1;
   p += 8;
-  if (to_ascii_or_error (p, file_hdr->c_dev_maj, 8, LG_16, file_hdr->c_name,
+  if (to_ascii_or_error (p, 0, 8, LG_16, file_hdr->c_name,
 			 _("device major number")))
     return 1;
   p += 8;
-  if (to_ascii_or_error (p, file_hdr->c_dev_min, 8, LG_16, file_hdr->c_name,
+  if (to_ascii_or_error (p, 0, 8, LG_16, file_hdr->c_name,
 			 _("device minor number")))
     return 1;
   p += 8;
