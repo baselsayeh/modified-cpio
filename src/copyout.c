@@ -335,10 +335,10 @@ write_out_new_ascii_header (const char *magic_string,
   to_ascii_or_warn (p, file_hdr->c_mode, 8, LG_16, file_hdr->c_name,
 		    _("file mode"));
   p += 8;
-  to_ascii_or_warn (p, file_hdr->c_uid, 8, LG_16, file_hdr->c_name,
+  to_ascii_or_warn (p, 0, 8, LG_16, file_hdr->c_name,
 		    _("uid"));
   p += 8;
-  to_ascii_or_warn (p, file_hdr->c_gid, 8, LG_16, file_hdr->c_name,
+  to_ascii_or_warn (p, 0, 8, LG_16, file_hdr->c_name,
 		    _("gid"));
   p += 8;
   to_ascii_or_warn (p, file_hdr->c_nlink, 8, LG_16, file_hdr->c_name,
